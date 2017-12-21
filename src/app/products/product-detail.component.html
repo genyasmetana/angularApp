@@ -1,0 +1,29 @@
+<div class="panel panel-primary" *ngIf='product'>
+  <div class="panel-heading">
+    {{pageTitle + ': ' + product.productName}}
+  </div>
+  <div class="panel-body">
+    <div class="visible-xs text-center">
+      <img [src]='product.imageUrl'>
+    </div>
+    <div class="col-lg6 col-md-6 col-sm-6 col-xs-12">
+      <div>{{product.productName}}</div>
+      <div>{{product.description}}</div>
+      <div>{{product.releaseDate}}</div>
+      <div>{{product.price | currency:'USD':true:'1.2-2'}}</div>
+      <div>
+        <pm-star [rating]='product.starRating'></pm-star>
+      </div>
+      <div>{{product.productCode | lowercase | ConvertToSpaces: '-'}}</div>
+    </div>
+    <div class="col-lg6 col-md-6 col-sm-6 hidden-xs">
+     <img [src]='product.imageUrl'>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <a class="btn btn-default" (click)='onBack()'>
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Back
+    </a>
+  </div>
+</div>
